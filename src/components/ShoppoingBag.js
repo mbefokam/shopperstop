@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {addGroceryById} from '../actions';
 
 class ShoppingBag extends Component {
 
   render() {
+    console.log('shoppingBage local state',this.props.shoppingBage);
+    const listOFdeailts = this.props.shoppingBage.map((detail) =>
+	        <li key={detail.id}
+            className="list-group-item"
+            >
+            <b>{detail.name}</b> - <span className="label label-info">$ {detail.cost} </span> - <span className="label label-warning">{detail.calories} KCal </span> - <span className="label label-primary">{detail.weight} mg</span>
+          </li>)
     return (
       <div className="col-md-4">
-				<h2 className="text-center">ShoppingBag Items</h2>
+				<h2 className="text-center">Grocery Items</h2>
         <ul className="list-group">
-        <li className="list-group-item">Cras justo odio</li>
-          <li className="list-group-item">Dapibus ac facilisis in</li>
-            <li className="list-group-item">Morbi leo risus</li>
-            <li className="list-group-item">Porta ac consectetur ac</li>
-            <li className="list-group-item">Vestibulum at eros</li>
+        {listOFdeailts }
 				</ul>
 			</div>
     );
@@ -19,4 +24,10 @@ class ShoppingBag extends Component {
 
 }
 
-export default ShoppingBag;
+function mapStateToProps(state){
+  console.log('mapStateToProps- Grocery.js',state);
+  return{
+    shoppingBage: state.shoppingBage
+  }
+}
+export default connect(mapStateToProps, {addGroceryById})(ShoppingBag);

@@ -5,7 +5,7 @@ import {addGroceryById} from '../actions';
 class Grocery extends Component {
 
   render() {
-    console.log('local state',this.props.grocery);
+    console.log('grocery local state',this.props.grocery);
     const listOFdeailts = this.props.grocery.map((detail) =>
 	        <li key={detail.id}
             className="list-group-item"
