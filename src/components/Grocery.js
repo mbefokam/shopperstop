@@ -27,7 +27,7 @@ class Grocery extends Component {
 function mapStateToProps(state){
   console.log('mapStateToProps- Grocery.js',state);
   return{
-    grocery: state
+    grocery: state.grocery
   }
 }
 export default connect(mapStateToProps, {addGroceryById})(Grocery);
