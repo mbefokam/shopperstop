@@ -1,11 +1,13 @@
 import grocery from './grocery_reducer';
-import shoppingBage from './shopingBag_reducer';
+import shoppingBag from './shoppingBag_reducer';
+import pocketMoney from './spending_reducer';
 
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  grocery,
-  shoppingBage
-})
+	grocery,
+	shoppingBag,
+	pocketMoney
+});
 
 export default rootReducer;
